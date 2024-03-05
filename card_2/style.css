@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #333;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  gap: 50px;
+}
+
+.container .box {
+  position: relative;
+  top: 0;
+  width: 360px;
+  height: 360px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background: var(--clr);
+  padding: 60px;
+  transition: 0.5s;
+}
+
+.container .box:hover {
+  top: 100px;
+}
+
+.container .box::before {
+  content: "";
+  position: absolute;
+  inset: 30px 30px 30px 30px;
+  border: 5px solid #fff;
+  border-radius: 20px;
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 100;
+}
+
+.container .box:hover::before {
+  inset: -200px 30px 30px 30px;
+}
+
+.container .box svg {
+  position: absolute;
+  top: 120px;
+  z-index: 10;
+  max-width: 120px;
+  transition: 0.5s;
+  color: #fff;
+  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
+}
+
+.container .box:hover svg {
+  top: -150px;
+}
+
+.container .box .content {
+  opacity: 0;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.container .box:hover .content {
+  opacity: 1;
+}
+
+.container .box .content h2 {
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.container .box .content p {
+  color: #fff;
+  text-align: center;
+}
+
+.container .box .content a {
+  position: relative;
+  top: 20px;
+  padding: 10px 30px;
+  background-color: #fff;
+  display: inline-block;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.container .box span {
+  position: absolute;
+  inset: 0;
+  rotate: calc(var(--i) * 90deg);
+}
+
+.container .box span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-repeat: repeat;
+  height: 15px;
+  background-image: radial-gradient(
+    circle at 10px 15px,
+    #333 12px,
+    transparent 13px
+  );
+  background-size: 40px 20px;
+  animation: animate 0.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.container .box span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-repeat: repeat;
+  height: 10px;
+  background-image: radial-gradient(
+    circle at 10px -5px,
+    transparent 12px,
+    #333 13px
+  );
+  background-size: 20px 20px;
+  animation: animate 0.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.container .box:hover span::before,
+.container .box:hover span::after {
+  animation-play-state: running;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Magic Navigation Menu</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#">
+          <i class="ti ti-navigation-filled"></i>
+          <text>Home</text>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="ti ti-user-filled"></i>
+          <text>Account</text>
+        </a>
+      </li>
+      <li class="active">
+        <a href="#">
+          <i class="ti ti-square-rounded-plus-filled"></i>
+          <text>Create</text>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="ti ti-settings-filled"></i>
+          <text>Settings</text>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="ti ti-message-circle-filled"></i>
+          <text>Chat</text>
+        </a>
+      </li>
+      <div id="marker"><span></span></div>
+    </ul>
+    <script>
+      let marker = document.querySelector("#marker");
+      let list = document.querySelectorAll("ul li");
+
+      function setMarkerPosition(e) {
+        marker.style.left = e.offsetLeft + "px";
+        marker.style.width = e.offsetWidth + "px";
+      }
+
+      list.forEach((li) => {
+        li.addEventListener("click", (e) => {
+          setMarkerPosition(e.target);
+        });
+      });
+
+      function setActive(e) {
+        list.forEach((li) => {
+          li.classList.remove("active");
+          this.classList.add("active");
+        });
+      }
+
+      list.forEach((li) => {
+        li.addEventListener("click", setActive);
+      });
+    </script>
+  </body>
+</html>

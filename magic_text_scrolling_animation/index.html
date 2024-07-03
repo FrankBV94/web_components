@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Magic Text Scrolling Animation</title>
+  </head>
+  <body>
+    <p class="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, illum
+      quis? Vero magnam neque eligendi, ab rem eaque omnis reiciendis quae
+      labore iste quo amet quidem sed nemo minus id placeat. Corrupti quae nemo
+      excepturi incidunt. Odit sunt laboriosam inventore sed totam incidunt
+      doloribus dolores. Sequi a reprehenderit quod nulla.
+    </p>
+    <script>
+      let text = document.querySelector(".text");
+      let spans = text.textContent
+        .trim()
+        .split(" ")
+        .map((word) => `<span>${word}&nbsp;</span>`);
+      text.innerHTML = spans.join("");
+
+      window.addEventListener("scroll", () => {
+        let scrollPosition = window.scrollY;
+        let textTop = text.getBoundingClientRect().top;
+
+        document.querySelectorAll(".text span").forEach((span, index) => {
+          let spanTop = textTop + (span.offsetHeight + 20) * index;
+          span.classList.toggle("reveal", scrollPosition > spanTop - 20);
+        });
+      });
+    </script>
+  </body>
+</html>

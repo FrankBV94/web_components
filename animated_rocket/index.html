@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="rocket">
+        <img src="rocket.png" />
+      </div>
+    </div>
+  </body>
+  <script>
+    function stars() {
+      const colors = ["#fde047", "#93c5fd", "#f9a8d4"];
+      let count = 20;
+      let scene = document.querySelector(".scene");
+      let i = 0;
+      while (i < count) {
+        let star = document.createElement("i");
+        let x = Math.floor(Math.random() * window.innerWidth);
+
+        let duration = Math.random() * 2;
+        let h = Math.random() * 50;
+
+        star.style.left = x + "px";
+        star.style.width = 2 + "px";
+        star.style.height = h + "px";
+        star.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+        star.style.animationDuration = duration + "s";
+
+        scene.appendChild(star);
+
+        i++;
+      }
+    }
+
+    stars();
+  </script>
+</html>

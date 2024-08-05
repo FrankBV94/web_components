@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs">
+        <input type="radio" name="group" id="home" checked />
+        <input type="radio" name="group" id="about" />
+        <input type="radio" name="group" id="settings" />
+        <input type="radio" name="group" id="security" />
+        <div class="icon">
+          <label for="home"><ion-icon name="home-outline"></ion-icon></label>
+          <label for="about"><ion-icon name="person-outline"></ion-icon></label>
+          <label for="settings"
+            ><ion-icon name="settings-outline"></ion-icon
+          ></label>
+          <label for="security"
+            ><ion-icon name="lock-closed-outline"></ion-icon
+          ></label>
+          <div class="indicator"></div>
+        </div>
+        <div class="content">
+          <div class="contentBx" for="home">
+            <h2>Home</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              odit dolorem hic voluptatum commodi reprehenderit voluptas, optio
+              incidunt velit explicabo!
+            </p>
+          </div>
+          <div class="contentBx" for="about">
+            <h2>About</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum
+              magni voluptas, repellendus aut fugit adipisci tempora ut atque
+              dolores, nulla error in tenetur dignissimos, cupiditate
+              repudiandae quos dolorum? Pariatur, a.
+            </p>
+          </div>
+          <div class="contentBx" for="settings">
+            <h2>Settings</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Consequuntur minus eos recusandae corporis consectetur, dolorum
+              tempora libero aliquam molestiae nulla!
+            </p>
+          </div>
+          <div class="contentBx" for="security">
+            <h2>Security</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              distinctio cumque voluptates maxime molestias ipsam id eos dolores
+              corporis! Qui!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

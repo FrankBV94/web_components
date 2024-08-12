@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>3D Text Animation</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="text"></div>
+    </div>
+    <script>
+      let text = document.querySelector(".text");
+      for (let i = 0; i <= 24; i++) {
+        let span = document.createElement("span");
+        span.innerHTML = "<b>CSS</b> is <b>awesome</b>";
+        span.style.setProperty("--i", i);
+        text.appendChild(span);
+      }
+    </script>
+  </body>
+</html>

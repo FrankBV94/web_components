@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #164e63;
+}
+
+h2 {
+  position: relative;
+  font-size: 6em;
+  color: transparent;
+  -webkit-text-stroke: 2px #22d3ee;
+  line-height: 1em;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+h2 span {
+  display: inline-flex;
+  transition: 0.5s ease-in-out;
+  filter: drop-shadow(0 0 15px #22d3ee);
+}
+
+h2 span:nth-child(even) {
+  overflow: hidden;
+  letter-spacing: -1em;
+}
+
+h2:hover ~ h2 span:nth-child(even),
+h2:hover span:nth-child(even) {
+  letter-spacing: 0;
+  color: #22d3ee;
+}

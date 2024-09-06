@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button hover effect</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="#">Hover me</a>
+    <a href="#">Click me</a>
+    <a href="#">Aloha</a>
+    <script>
+      document.querySelectorAll("a").forEach((a) => {
+        a.innerHTML = a.innerText
+          .split("")
+          .map((letters, i) => {
+            if (letters === " ") {
+              return " ";
+            } else {
+              return `<span style="transition-delay:${
+                i * 50
+              }ms">${letters}</span>`;
+            }
+          })
+          .join("");
+      });
+    </script>
+  </body>
+</html>

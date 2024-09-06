@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Magnetic Mouse Effect</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="--clr: #ef4444">1</div>
+      <div class="card" style="--clr: #eab308">2</div>
+      <div class="card" style="--clr: #22c55e">3</div>
+      <div class="card" style="--clr: #3b82f6">4</div>
+    </div>
+    <script>
+      let cards = document.querySelectorAll(".card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          let x = e.offsetX;
+          let y = e.offsetY;
+          let cardWidth = card.clientWidth;
+          let cardHeight = card.clientHeight;
+          let posX = (x - cardWidth) / 2;
+          let posY = (y - cardHeight) / 2;
+          card.style.transform = `translateX(${posX}px) translateY(${posY}px)`;
+        });
+        card.addEventListener("mouseout", (e) => {
+          card.style.transform = ``;
+        });
+      });
+    </script>
+  </body>
+</html>

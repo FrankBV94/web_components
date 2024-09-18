@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Horizontal Page Scroll</title>
+  </head>
+  <body>
+    <div class="container">
+      <section style="--cle: #f87171">
+        <div class="content">
+          <h2>Section 1</h2>
+        </div>
+      </section>
+      <section style="--cle: #fb923c">
+        <div class="content">
+          <h2>Section 2</h2>
+        </div>
+      </section>
+      <section style="--cle: #fbbf24">
+        <div class="content">
+          <h2>Section 3</h2>
+        </div>
+      </section>
+      <section style="--cle: #facc15">
+        <div class="content">
+          <h2>Section 4</h2>
+        </div>
+      </section>
+      <section style="--cle: #a3e635">
+        <div class="content">
+          <h2>Section 5</h2>
+        </div>
+      </section>
+      <section style="--cle: #4ade80">
+        <div class="content">
+          <h2>Section 6</h2>
+        </div>
+      </section>
+      <section style="--cle: #34d399">
+        <div class="content">
+          <h2>Section 7</h2>
+        </div>
+      </section>
+      <section style="--cle: #2dd4bf">
+        <div class="content">
+          <h2>Section 8</h2>
+        </div>
+      </section>
+      <section style="--cle: #22d3ee">
+        <div class="content">
+          <h2>Section 9</h2>
+        </div>
+      </section>
+      <section style="--cle: #38bdf8">
+        <div class="content">
+          <h2>Section 10</h2>
+        </div>
+      </section>
+      <section style="--cle: #60a5fa">
+        <div class="content">
+          <h2>Section 11</h2>
+        </div>
+      </section>
+      <section style="--cle: #818cf8">
+        <div class="content">
+          <h2>Section 12</h2>
+        </div>
+      </section>
+      <section style="--cle: #a78bfa">
+        <div class="content">
+          <h2>Section 13</h2>
+        </div>
+      </section>
+      <section style="--cle: #c084fc">
+        <div class="content">
+          <h2>Section 14</h2>
+        </div>
+      </section>
+      <section style="--cle: #e879f9">
+        <div class="content">
+          <h2>Section 15</h2>
+        </div>
+      </section>
+      <section style="--cle: #f472b6">
+        <div class="content">
+          <h2>Section 16</h2>
+        </div>
+      </section>
+      <section style="--cle: #fb7185">
+        <div class="content">
+          <h2>Section 17</h2>
+        </div>
+      </section>
+    </div>
+    <script>
+      window.addEventListener("scroll", function () {
+        let scrollY = window.scrollY;
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        let percentScrolled = (scrollY / totalHeight) * 100;
+        let translateX = (percentScrolled / 17) * -16;
+        document.querySelector(
+          ".container"
+        ).style.transform = `translateX(${translateX}%)`;
+      });
+    </script>
+  </body>
+</html>

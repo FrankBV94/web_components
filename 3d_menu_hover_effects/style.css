@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #131313;
+}
+
+ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform-style: preserve-3d;
+}
+
+ul li {
+  position: relative;
+  list-style: none;
+  transform-style: preserve-3d;
+}
+
+ul li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transform-style: preserve-3d;
+}
+
+ul li a span {
+  position: relative;
+  color: #fff;
+  font-size: 4em;
+  padding: 5px 20px;
+  font-weight: 700;
+  transform-style: preserve-3d;
+}
+
+ul:hover li a span {
+  opacity: 0.1;
+}
+
+ul li a span:hover {
+  opacity: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px #fff;
+}
+
+ul li a span:before,
+ul li a span:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 20px;
+  transform-style: preserve-3d;
+  -webkit-text-stroke: 0px #fff;
+  transform: translateZ(0px);
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+ul li a:hover span:before {
+  transform: translateZ(75px);
+  opacity: 1;
+  color: #ff3e7f;
+}
+ul li a:hover span:after {
+  transform: translateZ(150px);
+  opacity: 1;
+  color: #5cb7ff;
+}

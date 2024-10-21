@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.container section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container section:nth-child(even) {
+  background: #694bd1;
+}
+
+h2 {
+  font-size: 8em;
+  color: #fff;
+}

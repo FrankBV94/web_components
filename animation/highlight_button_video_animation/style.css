@@ -1,0 +1,351 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+:root {
+  --transition: 0.25s;
+  --spark: 1.8s;
+  --hue: 245;
+}
+
+body {
+  --active: 0;
+  background: hsl(var(--hue), calc(var(--active) * 97%), 6%);
+  padding: 2rem;
+  place-content: center;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  transition: background var(--transition);
+}
+
+h1,
+p {
+  margin: 1.5rem auto 2rem;
+  max-width: 640px;
+  color: hsl(0, 0%, 80%);
+  text-wrap: balance;
+  text-align: center;
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 1.5rem auto;
+  line-height: 1.1;
+}
+
+p {
+  margin: 1.5rem auto 2rem;
+}
+
+video {
+  margin-inline: auto;
+  margin-block: 2rem;
+  display: block;
+  max-inline-size: 700px;
+  inline-size: 100%;
+}
+
+/* Video Subtitles Style - Firefox */
+video::cue {
+  background: hsla(0, 0%, 5%, 0.6) !important;
+}
+
+/* Chrome mainly, Safari doesn't support padding */
+video::-webkit-media-text-track-display {
+  width: max-content !important;
+  left: 50% !important;
+  translate: -50% 0;
+  line-height: 1.4;
+  /* Chrome, but not Safari */
+  padding: 0.5rem 1.1rem !important;
+}
+
+/* 
+ * Button by Jhey Tompkins
+ * https://codepen.io/jh3y/pen/eYPYKep
+ * Jhey's CodePen profile: https://codepen.io/jh3y
+ * Jhey's website: https://jhey.dev/
+ */
+.button {
+  --cut: 0.1em;
+  --active: 0;
+  --bg: radial-gradient(
+        120% 120% at 126% 126%,
+        hsl(
+            var(--hue) calc(var(--active) * 97%) 98% / calc(var(--active) * 0.9)
+          )
+          40%,
+        transparent 50%
+      )
+      calc(100px - (var(--active) * 100px)) 0 / 100% 100% no-repeat,
+    radial-gradient(
+        120% 120% at 120% 120%,
+        hsl(var(--hue) calc(var(--active) * 97%) 70% / calc(var(--active) * 1))
+          30%,
+        transparent 70%
+      )
+      calc(100px - (var(--active) * 100px)) 0 / 100% 100% no-repeat,
+    hsl(var(--hue) calc(var(--active) * 100%) calc(12% - (var(--active) * 8%)));
+  background: var(--bg);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  margin: 1.5rem auto;
+  padding: 0.8em 1.3em;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: 2rem;
+  position: relative;
+  box-shadow: 0 0 calc(var(--active) * 6em) calc(var(--active) * 3em) hsl(var(--hue), 97%, 61%, 0.5), 0 0.05em 0 0 hsl(var(--hue), calc(var(--active) * 97%), calc(var(--active) * 50% + 30%)) inset, 0 -0.05em 0 0 hsl(var(--hue), calc(var(--active) * 97%), calc(var(--active) * 10%)) inset;
+  transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
+  scale: calc(1 + var(--active) * 0.1);
+  transform-style: preserve-3d;
+  perspective: 100vmin;
+  overflow: hidden;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.button:active {
+  scale: 1;
+}
+
+.star {
+  height: calc(var(--size) * 1px);
+  aspect-ratio: 1;
+  background: white;
+  border-radius: 50%;
+  /*	filter: blur(4px);*/
+  position: absolute;
+  opacity: var(--alpha);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(10deg) rotate(0deg) translateY(calc(var(--distance) * 1px));
+  -webkit-animation: orbit calc(var(--duration) * 1s) calc(var(--delay) * -1s) infinite linear;
+  animation: orbit calc(var(--duration) * 1s) calc(var(--delay) * -1s) infinite linear;
+}
+
+@-webkit-keyframes orbit {
+  to {
+    transform: translate(-50%, -50%) rotate(10deg) rotate(360deg) translateY(calc(var(--distance) * 1px));
+  }
+}
+@keyframes orbit {
+  to {
+    transform: translate(-50%, -50%) rotate(10deg) rotate(360deg) translateY(calc(var(--distance) * 1px));
+  }
+}
+.galaxy {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  overflow: hidden;
+  opacity: var(--active);
+  transition: opacity var(--transition);
+  /*transform-style: preserve-3d;
+  perspective: 100vmin;*/
+  /*	opacity: 0.25;*/
+}
+
+.galaxy__ring {
+  height: 200%;
+  width: 200%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-28%, -40%) rotateX(-24deg) rotateY(-30deg) rotateX(90deg);
+  transform-style: preserve-3d;
+  /*	background: red;*/
+}
+
+.galaxy__container {
+  position: absolute;
+  inset: 0;
+  opacity: var(--active);
+  transition: opacity var(--transition);
+  -webkit-mask: radial-gradient(white, transparent);
+  mask: radial-gradient(white, transparent);
+}
+
+.star--static {
+  -webkit-animation: none;
+  animation: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, 0);
+  max-height: 4px;
+  filter: brightness(4);
+  opacity: 0.9;
+  -webkit-animation: move-x calc(var(--duration) * 0.1s) calc(var(--delay) * -0.1s) infinite linear, move-y calc(var(--duration) * 0.2s) calc(var(--delay) * -0.2s) infinite linear;
+  animation: move-x calc(var(--duration) * 0.1s) calc(var(--delay) * -0.1s) infinite linear, move-y calc(var(--duration) * 0.2s) calc(var(--delay) * -0.2s) infinite linear;
+}
+
+.button:hover .star--static {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@-webkit-keyframes move-x {
+  0% {
+    translate: -100px 0;
+  }
+  100% {
+    translate: 100px 0;
+  }
+}
+@keyframes move-x {
+  0% {
+    translate: -100px 0;
+  }
+  100% {
+    translate: 100px 0;
+  }
+}
+@-webkit-keyframes move-y {
+  0% {
+    transform: translate(0, -50px);
+  }
+  100% {
+    transform: translate(0, 50px);
+  }
+}
+@keyframes move-y {
+  0% {
+    transform: translate(0, -50px);
+  }
+  100% {
+    transform: translate(0, 50px);
+  }
+}
+.spark {
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  rotate: 0deg;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(white, transparent 50%);
+  mask: linear-gradient(white, transparent 50%);
+  -webkit-animation: flip calc(var(--spark) * 2) infinite steps(2, end);
+  animation: flip calc(var(--spark) * 2) infinite steps(2, end);
+}
+
+@-webkit-keyframes flip {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes flip {
+  to {
+    rotate: 360deg;
+  }
+}
+.spark:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  aspect-ratio: 1;
+  top: 0%;
+  left: 50%;
+  z-index: -1;
+  translate: -50% -15%;
+  rotate: 0;
+  transform: rotate(-90deg);
+  opacity: calc((var(--active)) + 0.4);
+  background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg);
+  transition: opacity var(--transition);
+  -webkit-animation: rotate var(--spark) linear infinite both;
+  animation: rotate var(--spark) linear infinite both;
+  opacity: 0;
+}
+
+.button:is(:hover, :focus-visible, .animate) .spark:before {
+  opacity: calc((var(--active)) + 0.4);
+}
+
+.spark:after {
+  content: "";
+  position: absolute;
+  inset: var(--cut);
+  border-radius: 2rem;
+}
+
+.backdrop {
+  position: absolute;
+  inset: var(--cut);
+  background: var(--bg);
+  border-radius: 2rem;
+  transition: background var(--transition);
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: rotate(90deg);
+  }
+}
+@keyframes rotate {
+  to {
+    transform: rotate(90deg);
+  }
+}
+@supports (selector(:has(:is(+ *)))) {
+  body:has(.button:is(:hover, :focus-visible, .animate)) {
+    --active: 1;
+    --play-state: running;
+  }
+  .bodydrop {
+    display: none;
+  }
+}
+.button:is(:hover, :focus-visible, .animate) ~ :is(.bodydrop, .particle-pen) {
+  --active: 1;
+  --play-state: running;
+}
+
+.bodydrop {
+  background: hsl(260, calc(var(--active) * 97%), 6%);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.button:is(:hover, :focus-visible, .animate) {
+  --active: 1;
+  --play-state: running;
+}
+
+.galaxy-button {
+  position: relative;
+}
+
+@-webkit-keyframes float-out {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes float-out {
+  to {
+    rotate: 360deg;
+  }
+}
+.text {
+  translate: 2% -6%;
+  letter-spacing: 0.01ch;
+  /*background: linear-gradient(90deg, hsl(0 0% calc((var(--active) * 100%) + 65%)), hsl(0 0% calc((var(--active) * 100%) + 26%)));
+  -webkit-background-clip: text;*/
+  color: hsl(0, 0%, calc(60% + var(--active) * 26%));
+}
+
+.button svg {
+  inline-size: 1.25em;
+  translate: -25% -5%;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Menu Image Change</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="picture" class="one"></div>
+      <ul>
+        <li rel="one" class="active"><a href="#">Home</a></li>
+        <li rel="two"><a href="#">About</a></li>
+        <li rel="three"><a href="#">Contact</a></li>
+        <li rel="four"><a href="#">Blog</a></li>
+        <li rel="five"><a href="#">Portfolio</a></li>
+        <li rel="six"><a href="#">Resume</a></li>
+      </ul>
+    </div>
+    <script>
+      document.querySelectorAll("ul li").forEach(function (item) {
+        item.addEventListener("mouseenter", function () {
+          let relClass = this.getAttribute("rel");
+          let picture = document.getElementById("picture");
+
+          picture.className = "";
+          picture.classList.add(relClass);
+          this.classList.add("active");
+          this.parentElement.querySelectorAll("li").forEach(function (sibling) {
+            if (sibling !== item) {
+              sibling.classList.remove("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

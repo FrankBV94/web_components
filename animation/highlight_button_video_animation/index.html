@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Highlight a button based on Video content</h1>
+<p>Watch the video and see the button light up when I start talking about subscribing to my YouTube channel. Subtitles need to be enabled for this effect to happen.</p>
+
+<video crossorigin="anonymous" id="video" controls preload="metadata" poster="https://assets.codepen.io/47791/cssweekly-zoranjambor-videocue.jpg">
+	<source src="https://css-weekly.com/demos/cssweekly-video-cue-demo.mp4" type="video/mp4">
+	</source>
+	<track label="English" kind="subtitles" srclang="en" src="https://css-weekly.com/demos/cssweekly-video-cue-demo9.vtt" default>
+	</track>
+</video>
+
+<!-- 
+ * Button by Jhey Tompkins: 
+ * Jhey's CodePen profile: https://codepen.io/jh3y
+ * Jhey's website: https://jhey.dev/
+-->
+<div class="galaxy-button">
+	<a class="button" href="https://www.youtube.com/@CSSWeekly?sub_confirmation=1" target="_top">
+		<span class="spark"></span>
+		<span class="backdrop"></span>
+		<span class="galaxy__container">
+			<span class="star star--static"></span>
+			<span class="star star--static"></span>
+			<span class="star star--static"></span>
+			<span class="star star--static"></span>
+		</span>
+		<span class="galaxy">
+			<span class="galaxy__ring">
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+				<span class="star"></span>
+			</span>
+		</span>
+		<span class="text">Subscribe to CSS Weekly</span>
+	</a>
+	<div class="bodydrop"></div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

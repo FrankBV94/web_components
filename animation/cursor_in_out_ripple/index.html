@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cursor In Out Ripple</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <script>
+        let boxes = document.querySelectorAll(".box");
+        boxes.forEach((box) => {
+          box.onmouseenter = function (e) {
+            let x = e.pageX - box.offsetLeft;
+            let y = e.pageY - box.offsetTop;
+
+            box.style.setProperty("--x", x + "px");
+            box.style.setProperty("--y", y + "px");
+          };
+        });
+      </script>
+    </div>
+  </body>
+</html>

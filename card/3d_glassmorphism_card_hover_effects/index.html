@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>3D Glassmorphism Card Hover Effects</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="imgBox">
+          <img src="img/img1.jpg" />
+        </div>
+        <div class="contentBox">
+          <h2>Card One</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            repellendus perferendis vitae blanditiis itaque recusandae eaque
+            minus, quas possimus modi?
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBox">
+          <img src="img/img2.jpg" />
+        </div>
+        <div class="contentBox">
+          <h2>Card Two</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            repellendus perferendis vitae blanditiis itaque recusandae eaque
+            minus, quas possimus modi?
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBox">
+          <img src="img/img3.jpg" />
+        </div>
+        <div class="contentBox">
+          <h2>Card Three</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            repellendus perferendis vitae blanditiis itaque recusandae eaque
+            minus, quas possimus modi?
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="vanilla-tilt.min.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".card"), {
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 1,
+      });
+    </script>
+  </body>
+</html>
